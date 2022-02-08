@@ -1,3 +1,10 @@
+// creating array of strings 
+const array = ["hey", "hello", "how are you"]
+console.log(array[1])
+
+
+
+//creating an array of objects
 const notes = [
     {
         id: 1,
@@ -16,13 +23,28 @@ const notes = [
 ]
 
 const noteAboutToday = {
-    id: 3,
     subject: "writing code on my own",
     date: "2/6/2022",
     feeling: "feeling really good on struggled with the console log thinking i needed to add something else i didnt need",
     timeSpent: "I spent around 15 minutes writing what it asked for"
 }
-notes.push(noteAboutToday)
+
+
+//declaring a function with a parameter of noteObject(this is not invoking it)
+const createNote = (noteObject) => {
+    const lastIndex = notes.length - 1
+    const arrayObject = notes[lastIndex]
+    const newId = arrayObject.id + 1
+    noteObject.id = newId
+
+    notes.push(noteObject)
+}
+
+
+//invoking the function, and noteAboutToday is an argument
+createNote(noteAboutToday) 
+console.log(notes)
+
 
 const searchTerm = "felt good learing it was a lttle confused at first. since it was my first time"
 
